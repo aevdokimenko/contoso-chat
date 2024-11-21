@@ -16,7 +16,7 @@ name: Contoso Chat - Retail RAG Copilot with Azure AI Studio and Prompty (Python
 description: Build, evaluate, and deploy, a RAG-based retail copilot that responds to customer questions with responses grounded in the retailer's product and customer data.
 ---
 <!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
-
+https://nitya.github.io/contoso-chat/05-Deploy/06/
 
 # Contoso Chat: Retail RAG Copilot with Azure AI Studio and Prompty
 
