@@ -16,7 +16,7 @@ name: Contoso Chat - Retail RAG Copilot with Azure AI Studio and Prompty (Python
 description: Build, evaluate, and deploy, a RAG-based retail copilot that responds to customer questions with responses grounded in the retailer's product and customer data.
 ---
 <!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
-https://nitya.github.io/contoso-chat/05-Deploy/06/
+
 
 # Contoso Chat: Retail RAG Copilot with Azure AI Studio and Prompty
 
@@ -25,29 +25,38 @@ https://nitya.github.io/contoso-chat/05-Deploy/06/
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features) · [Architecture Diagram](#architecture-diagram) 
-- [Pre-Requisites](#pre-requisites)
-- [Getting Started](#getting-started) 
-    - [GitHub Codespaces](#github-codespaces) 
-    - [VS Code Dev Containers](#vs-code-dev-containers) 
-    - [Local Environment](#local-environment) 
-- [Development](#development) 
-- [Testing](#testing) 
-- [Deployment](#deployment)
-- [Guidance](#guidance) - [Region Availability](#region-availability) · [Costs](#costs) · [Security](#security)
-- [Workshop](#workshop) 🆕 · [Versions](#versions)
-- [Resources](#resources) · [Code of Conduct](#code-of-conduct)
-· [Responsible AI Guidelines](#responsible-ai-guidelines)
+- [Contoso Chat: Retail RAG Copilot with Azure AI Studio and Prompty](#contoso-chat-retail-rag-copilot-with-azure-ai-studio-and-prompty)
+  - [Table of Contents](#table-of-contents)
+  - [Important Security Notice](#important-security-notice)
+  - [Overview](#overview)
+  - [Features](#features)
+    - [Architecture Diagram](#architecture-diagram)
+  - [Pre-requisites](#pre-requisites)
+  - [Getting Started](#getting-started)
+    - [GitHub Codespaces](#github-codespaces)
+    - [VS Code Dev Containers](#vs-code-dev-containers)
+    - [Local environment](#local-environment)
+  - [Development](#development)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+  - [Guidance](#guidance)
+    - [Region Availability](#region-availability)
+    - [Costs](#costs)
+    - [Security](#security)
+  - [Workshop](#workshop)
+    - [Lab Guide](#lab-guide)
+  - [Resources](#resources)
+  - [Code of Conduct](#code-of-conduct)
+  - [Responsible AI Guidelines](#responsible-ai-guidelines)
 
 
-## Important Security Notice 
+## Important Security Notice
 
-This template, the application code and configuration it contains, has been built to showcase Microsoft Azure specific services and tools. We strongly advise our customers not to make this code part of their production environments without implementing or enabling additional security features.  
+This template, the application code and configuration it contains, has been built to showcase Microsoft Azure specific services and tools. We strongly advise our customers not to make this code part of their production environments without implementing or enabling additional security features.
 
 For a more comprehensive list of best practices and security recommendations for Intelligent Applications, visit our [official documentation](https://learn.microsoft.com/azure/developer/ai/get-started-securing-your-ai-app).
 
-> [!WARNING]  
+> [!WARNING]
 >
 > **Some of the features used in this repository are in preview.** Preview versions are provided without a service level agreement, and they are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
@@ -83,7 +92,7 @@ The project template provides the following features:
 - [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/) for embeddings, chat, and evaluation models
 - [Prompty](https://prompty.ai) for creating and managing prompts for rapid ideati
 - [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search) for performing semantic similarity search
-- [Azure CosmosDB](https://learn.microsoft.com/azure/cosmos-db/) for storing customer orders in a noSQL database 
+- [Azure CosmosDB](https://learn.microsoft.com/azure/cosmos-db/) for storing customer orders in a noSQL database
 - [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) for hosting the chat AI endpoint on Azure
 
 It also comes with:
@@ -91,7 +100,7 @@ It also comes with:
 - Sample application code for chat and evaluation workflows
 - Sample datasets and custom evaluators using prompty assets
 
-### Architecture Diagram 
+### Architecture Diagram
 ![Architecture](./docs/img/arch-contoso-retail-aca.png)
 
 ## Pre-requisites
@@ -139,7 +148,7 @@ A related option is to use VS Code Dev Containers, which will open the project i
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) (if not installed), then start it.
 1. Open the project in your local VS Code by clicking the button below:
-   
+
     [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/contoso-chat)
 
 1. Once the VS Code window shows the project files (this can take several minutes), open a new terminal in that VS Code instance - and proceed to the [Development](#development) step.
@@ -158,7 +167,7 @@ A related option is to use VS Code Dev Containers, which will open the project i
     - Create a new folder `contoso-chat` and `cd` into it
     - Run this command to download project template. Note that this command will initialize a git repository, so you do not need to clone this repository.
         ```bash
-        azd init -t contoso-chat-openai-prompty
+        azd init -t contoso-chat
         ```
 1. **Install dependencies** for the project, manually. Note that this is done for you automatically if you use the dev container options above.
     ```bash
@@ -190,7 +199,7 @@ We can now proceed with next steps - click to expand for detailed instructions.
     ```bash
     az login --use-device-code
     ```
-1. Now authenticate with Azure Developer CLI in the same terminal. Complete the auth workflow as guided. 
+1. Now authenticate with Azure Developer CLI in the same terminal. Complete the auth workflow as guided.
 
     ```bash
     azd auth login --use-device-code
@@ -246,7 +255,7 @@ We can now proceed with next steps - click to expand for detailed instructions.
     - Enter `customer_id` = 2
     - Enter `chat_history` = []
     - Click **Execute** to see results: _You should see a valid response with a list of matching tents from the product catalog with additional details_.
-1. ✅ | **Congratulations!** - Your Chat AI Deployment is working! 
+1. ✅ | **Congratulations!** - Your Chat AI Deployment is working!
 
 </details>
 
@@ -329,19 +338,19 @@ This template uses [Managed Identity](https://learn.microsoft.com/entra/identity
 
 Additionally, we have added a [GitHub Action tool](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure best practices we recommend anyone creating solutions based on our templates ensure that the [Github secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning) setting is enabled in your repo.
 
-## Workshop 
+## Workshop
 
-The sample has a `docs/workshop` folder with step-by-step guidance for developers, to help you deconstruct the codebase, and understand how to to provision, ideate, build, evaluate, and deploy, the application yourself, with your own data. 
+The sample has a `docs/workshop` folder with step-by-step guidance for developers, to help you deconstruct the codebase, and understand how to to provision, ideate, build, evaluate, and deploy, the application yourself, with your own data.
  - The workshop may be offered as an _instructor-guided option_ (e.g., on [Microsoft AI Tour](https://aitour.microsoft.com))
  - The workshop can be completed at home as a **self-paced lab** with your own subscription.
 
 ### Lab Guide
 
 1. [View Workshop Online](https://aka.ms/aitour/contoso-chat/workshop) - view a pre-built workshop version in your browser
-1. **View Workshop Locally** - The workshop is built using Mkdocs. To preview it locally, 
+1. **View Workshop Locally** - The workshop is built using Mkdocs. To preview it locally,
     - install mkdocs: `pip install mkdocs-material`
     - switch to folder: `cd docs/workshop`
-    - launch preview: `mkdocs serve` 
+    - launch preview: `mkdocs serve`
     - open browser to the preview URL specified
 
 Have issues or questions about the workshop? Submit [a new issue](https://github.com/Azure-Samples/contoso-chat/issues/new) with a `documentation` tag.
